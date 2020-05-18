@@ -1,0 +1,104 @@
+.article_container {
+    margin-top: -230px;
+    .return_link {
+      padding: 2rem 0 2rem;
+      max-width: 300px;
+      display: flex;
+      align-items: center;
+      p {
+        font-size: 1.125rem;
+        color: white;
+        line-height: 2.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        transition: color 0.1s ease;
+        display: inline-block;
+      }
+      .arrow {
+        background: url("../i/arrow_back.svg") 25px/20px no-repeat;
+        height: 50px;
+        display: block;
+        width: 50px;
+        transform: rotate(180deg);
+      }
+    }
+    .return_link:hover {
+      p {
+        color: $light_blue;
+      }
+    }
+    .article_body {
+      background: white;
+      padding: 2.5rem 5.38%;
+      .socialMedia {
+        padding-top: 11px;
+        .socialLink {
+          height: 45px;
+          display: block;
+          width: 45px;
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          margin-bottom: 15px;
+          p {
+            display: none;
+          }
+        }
+      }
+      .date {
+        color: $base_color;
+        font-weight: 400;
+        text-transform: uppercase;
+      }
+      .title {
+        font-weight: 100;
+        color: $secondary_color;
+        font-size: 3.688rem;
+        line-height: 1.237em;
+        margin: 0.25em 0;
+        max-width: 900px;
+      }
+      .author {
+        font-size: 1.25rem;
+        color: $base_color;
+        line-height: 23px;
+      }
+      .body_container {
+        padding-top: 2.5rem;
+        display: flex;
+      }
+      .socialMedia {
+        min-width: 75px;
+        width: 5%;
+      }
+      .bodyText {
+        width: 95%;
+        max-width: 900px;
+        p {
+          color: $base_color;
+          font-size: 1.25rem;
+          font-weight: 100;
+          line-height: 1.8em;
+        }
+      }
+    }
+  }
+
+  .embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 40px;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  
+  .embed-container iframe,
+  .embed-container object,
+  .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }

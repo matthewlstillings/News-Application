@@ -1,33 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { singleFilter } from "../helpers/filterFunction";
 
-const PressSection = (props) => {
-  const [press, setPress] = useState([]);
-  const [inView, setInView] = useState(6);
+const ThumbnailSectionBasic = (props) => {
+  const [content, setContent] = useState([]);
+  const [inView, setInView] = useState();
   useEffect(() => {
-    setPress(
-      singleFilter("In The Press", props.resources).slice(
+    setContent(
+      singleFilter(props.filter, props.resources).slice(
         0,
         inView
       )
     );
   }, [props.resources, inView]);
   useEffect(() => {
-    setInView(6);
+    setInView(props.inView);
   }, []);
   const handleInViewIncrement = (e) => {
     setInView((prevView) => {
-      return prevView + 6;
+      return prevView + props.increment;
     });
   };
   return (
-    <section className="thumbnail_section press_section industry_section" id="news">
+    <>
+    <section className="thumbnail_section" id={props.id}>
       <div className="contain">
-        <h2>In the News & Press</h2>
-        <h3>Sanctuary & Advisors in the press</h3>
-          <div className="grid features_grid">
-            {press.map((thumbnail, index) => (
-              <div className={"industry_thumbnail thumbnail"} key={thumbnail.ENITY_ID}>
+          <h3 class="section-title">{props.title}</h3>
+          <div className="grid">
+            {content.map((thumbnail, index) => (
+              <div className="thumbnail" key={thumbnail.ENITY_ID}>
                 <ce oet={`sbd3167_${thumbnail.ENITY_ID}`}>
                   <a target="_blank" href={thumbnail.HREF}>
                     <div
@@ -37,9 +37,8 @@ const PressSection = (props) => {
                       }}
                     ></div>
                     <div className="info">
-                      <p className="date">{thumbnail.POST_DATE_FORMAT}</p>
-                      {thumbnail.AUTHOR.length > 0 && <p className="author">{thumbnail.AUTHOR}</p>}
-                      <p className="title">{thumbnail.DISPLAY_NAME}</p>
+                      <p className="date">{thumbnail.POST_DATE_FORMAT.replace(/\//g,'.')}</p>
+                      <p className="article-title">{thumbnail.DISPLAY_NAME}</p>
                       <p className="summary">{thumbnail.SHORT_DESC}</p>
                     </div>
                   </a>
@@ -48,15 +47,16 @@ const PressSection = (props) => {
               </div>
             ))}
           </div>
-        {singleFilter("In The Press", props.resources).length >=
+        {singleFilter(props.filter, props.resources).length >=
           inView && (
           <button onClick={handleInViewIncrement} className="view_more_btn">
-            View More
+            Load More
           </button>
         )}
       </div>
     </section>
+    </>
   );
 };
 
-export default PressSection;
+export default ThumbnailSectionBasic;

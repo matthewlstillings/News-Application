@@ -1,0 +1,232 @@
+#root {
+    min-height: 100vh;
+}
+
+* {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+p {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.667em;
+    color: $secondary_color;
+}
+
+button {
+    border: none;
+    background: transparent;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    display: block;
+}
+  
+body {
+    font-family: $primary-font;
+    font-size: 1rem;
+}
+
+/************ Base Component Styles ************/
+.contain {
+    max-width: 1300px;
+    margin: auto;
+}
+  
+section {
+padding: 80px 1.5rem;
+}
+
+.view_more_btn {
+    box-shadow: inset 0 0 0 1px rgba(198, 202, 206, 1);
+    display: flex;
+    padding: 1.2rem 3rem;
+    position: relative;
+    transition: color 0.8s ease;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    text-align: center;
+    margin: 2rem auto 0;
+    background: white;
+    font-family: $primary_font;
+    color: $secondary_color;
+    cursor: pointer;
+}
+.view_more_btn:before, .view_more_btn:after {
+    border: 0px solid rgba(198, 202, 206, 0);
+    border-top-width: 0px;
+    border-left-width: 0px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+    -webkit-transition: border-color 0s 0.5s, width 0.5s ease-in-out, height 0.5s ease-in;
+    transition: border-color 0s 0.5s, width 0.5s ease-in-out, height 0.5s ease-in;
+    z-index: 3;
+}
+.view_more_btn:hover {
+    color: $light_blue;
+}
+.view_more_btn:hover:before, .view_more_btn:hover:after {
+    border-color: $light_blue;
+    width: 100%;
+    height: 100%;
+    transition: border-color 0s, width 0.5s ease-in-out, height 0.5s ease-in;
+}
+.view_more_btn:before {
+    border-top-width: 1px;
+    border-left-width: 1px;
+    left: 0;
+    top: 0;
+}
+.view_more_btn:after {
+    border-bottom-width: 1px;
+    border-right-width: 1px;
+    right: 0;
+    bottom: 0;
+}
+
+
+h2 {
+    font-size: 2.22em;
+    color: $base_color;
+    line-height: 2.4rem;
+    font-weight: 300;
+}
+
+h2:after {
+    position: absolute;
+    display: block;
+    content: '01';
+    color: $light_blue;
+    left: -25px;
+    top: -25px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: .1em;
+}
+
+.two:after {
+    content: '02';
+}
+
+.section-title *, .section-title {
+	color: $secondary_color;
+	font-size: 1rem;
+	font-weight: 500;
+	line-height: 1.3em;
+	letter-spacing: .4em;
+	text-transform: uppercase;
+	display: block;
+	margin-bottom: 5rem;
+}
+
+.section-title::after {
+	content: '';
+	position: absolute;
+	display: block;
+	bottom: -25px;
+	left: 0;
+	background-color: #4eaad5;
+	width: 75px;
+	height: 1px;
+}
+
+.article-title {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+.date {
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+
+
+.callout {
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+
+/*************** Spinner/Loader *******************/
+
+.spinner {
+  margin: 150px auto 0;
+  width: 85px;
+  text-align: center;
+}
+
+.spinner > div {
+  width: 18px;
+  height: 18px;
+  background-color: $light_blue;
+  margin: 5px;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+.press_section {
+  padding-top: 80px;
+  background: white;
+  .thumbnail {
+    background: #ebf0f2 !important;
+  }
+  .author {
+    margin-bottom: 10px;
+    margin-top: -13px;
+  }
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%,
+  80%,
+  100% {
+    -webkit-transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes sk-bouncedelay {
+  0%,
+  80%,
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}

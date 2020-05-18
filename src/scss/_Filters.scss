@@ -1,0 +1,125 @@
+
+.contain.filters {
+    display: flex;
+}
+.filter_label {
+    font-size: 16px;
+    font-weight: 400;
+    margin-right: 20px;
+    text-transform: uppercase;
+    color: $secondary_color;
+  }
+  .filters_section {
+    padding: 0 1.5rem;
+  }
+  .filters {
+    padding-top: 80px;
+    .clear-btn {
+      margin: 0 auto 0 5px;
+    }
+  }
+  .filter_dropdown {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+    width: 100%;
+    margin-left: 50px;
+    .filter_dropnav {
+      width: 25%;
+      margin-bottom: 15px;
+      max-width: 225px;
+      border: 1px solid rgb(206, 210, 212);
+      padding: 1.15rem 3rem;
+      text-align: left;
+      margin: 0 0.5%;
+      background-color: transparent;
+      color: $secondary_color;
+      font-size: 1rem;
+      cursor: pointer;
+      font-family: $primary-font;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      background: url("../i/arrow_grey.svg") 90%/15px no-repeat;
+    }
+    .filter_dropnav.selected {
+      border-color: $light_blue;
+      color: $light_blue;
+      background: url("../i/arrow_blue.svg") 90%/15px no-repeat;
+    }
+  }
+
+  
+.dropdown_filter_list.opened {
+    display: flex;
+  }
+  
+  .dropdown_filter_list {
+    display: none;
+    padding: 20px;
+    border-top: 1px solid rgb(206, 210, 212);
+    flex-wrap: wrap;
+    .filter_check.Webinars,
+    .filter_check.Sanctuary.Press,
+    .filter_check.Sanctuary.Recognition
+    .filter_check.Awards,
+    .filter_check.Cares,
+    .filter_check.Cybersecurity,
+    .filter_check.Featured,
+    .filter_check.Health,
+    .filter_check.Tax,
+    .filter_check.Trending,
+    .filter_check.Updates {
+      display: none !important;
+    }
+    .filter_check.Updates.Sanctuary {
+      display: block !important;
+    }
+    .filter_check {
+      width: 33%;
+      display: flex;
+      cursor: pointer;
+      margin-bottom: 10px;
+      .checkbox {
+        min-width: 20px;
+        min-height: 20px;
+        width: 20px;
+        height: 20px;
+        border: 0.5px solid rgb(206, 210, 212);
+        margin-right: 15px;
+        margin-top: 5px;
+      }
+      .checkbox.checked {
+        background: $light_blue;
+      }
+      .checked {
+        color: $light_blue;
+      }
+      input[type="checkbox"] {
+        visibility: hidden;
+      }
+      > div {
+        display: flex;
+        width: 100%;
+      }
+    }
+  }
+  
+
+  .tag_contain {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+    .tag {
+      background: rgb(189, 189, 203);
+      padding: 0.5rem;
+      margin-right: 20px;
+      cursor: pointer;
+      span {
+        position: absolute;
+        top: 1px;
+        right: 3px;
+        font-size: 9px;
+      }
+    }
+  }

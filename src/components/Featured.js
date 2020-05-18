@@ -20,7 +20,7 @@ const FeaturedSection = (props) => {
   return (
     <section className="thumbnail_section features_section">
       <div className="contain">
-        <h3>Featured From Sanctuary</h3>
+        <h3 className="section-title">Featured From Sanctuary</h3>
           <div className="grid features_grid">
             {features.map((feature, index) => (
               <div
@@ -40,10 +40,10 @@ const FeaturedSection = (props) => {
                     }}
                   ></div>
                   <div className="info">
-                    <p className="date">{feature.POST_DATE_FORMAT}</p>
-                    <p className="title">{feature.DISPLAY_NAME}</p>
+                    <p className="date">{feature.POST_DATE_FORMAT.replace(/\//g,'.')}</p>
+                    <p className="article-title">{feature.DISPLAY_NAME}</p>
                     <p className="summary">{feature.SHORT_DESC}</p>
-                    <p className="callout">Click to read more</p>
+                    <p className="callout">Read More</p>
                   </div>
                 </a>
                 </ce>
@@ -52,7 +52,7 @@ const FeaturedSection = (props) => {
           </div>
         {features.length > inView && (
           <button onClick={handleInViewIncrement} className="view_more_btn">
-            View More
+            Load More
           </button>
         )}
       </div>

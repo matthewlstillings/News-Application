@@ -3,10 +3,10 @@ import AppRouter from "./router/AppRouter";
 import "./App.scss";
 import jsonData from "./output.json";
 
+const data = jsonData;
+
 function App() {
   const [topics, setTopics] = useState([]);
-  //const [industry, setIndustry] = useState([]);
-  //const [dist, setDist] = useState([]);
   const [format, setFormat] = useState([]);
   const [resources, setResources] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -16,17 +16,15 @@ function App() {
       .then((results) => {
         setResources(results.DATA);
         setTopics(results.GROUP.MAPPINGS);
-        //setIndustry(results.GROUP.EXTRA1);
-        //setDist(results.GROUP.EXTRA2);
         setIsLoading(false);
         setFormat(results.GROUP.EXTRA3);
       });
-      setResources(jsonData.DATA);
-      setTopics(jsonData.GROUP.MAPPINGS);
-      //setIndustry(results.GROUP.EXTRA1);
-      //setDist(results.GROUP.EXTRA2);
-      setIsLoading(false);
-      setFormat(jsonData.GROUP.EXTRA3);
+      if (data) {
+        setResources(data.DATA);
+        setTopics(data.GROUP.MAPPINGS);
+        setIsLoading(false);
+        setFormat(data.GROUP.EXTRA3);
+      }
   }, []);
   return (
     <>
@@ -41,8 +39,6 @@ function App() {
       ) : (
         <AppRouter
           topics={topics}
-          //industry={industry}
-          //dist={dist}
           format={format}
           resources={resources}
         />

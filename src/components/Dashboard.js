@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Filters from "./Filters";
 import Trending from "./Trending";
-import Webinar from "./Webinars";
 import Featured from "./Featured";
-import Industry from "./Industry";
-import Awards from "./Awards";
-import Recognition from './Recognition';
-import PressSection from './Press';
 import FilteredResults from "./FilteredResults";
+import ThumbnailSectionBasic from './ThumbnailContainerBasic';
 
 function Dashboard(props) {
   const [openSearch, setOpenSearch] = useState(false);
@@ -102,20 +98,6 @@ function Dashboard(props) {
 
   return (
     <>
-      <div className="hero">
-        <div className="contain">
-          <h1>Welcome to the Advisor Resource Center. </h1>
-          <p oet="s2">
-            We invite you to explore our new portal with access to relevant resources, tools and timely subject matter expertise from both Sanctuary as well as industry leading sources.
-          </p>
-          <div className="links">
-            <a href="#insights">Insights</a>
-            <a href="#news">In the News & Press</a>
-            <a href="#awards">Awards</a>
-            <a href="#toolkit">End Client Library</a>
-          </div>
-        </div>
-      </div>
       <div className="resource-app">
         <div className="filters_section">
           <Filters
@@ -140,19 +122,34 @@ function Dashboard(props) {
         ) : (
           <div>
             <Trending id="insights" resources={props.childProps.resources} />
-            <Webinar resources={props.childProps.resources} />
-            <div className="emphasized_text">
-              <div className="contain">
-                <p>
-                  During a crisis, effective communication is vitally important. But the leadership your clients seek requires outstanding communication at all times.
-                </p>
-              </div>
-            </div>
+            <ThumbnailSectionBasic 
+              resources={props.childProps.resources} 
+              filter='Webinar'
+              inView={3} 
+              increment={3} 
+              title="Webinars & Videos"
+              id="webinars_section"
+            />
             <Featured resources={props.childProps.resources} />
-            <Industry resources={props.childProps.resources} />
-            <PressSection resources={props.childProps.resources} />
-            <Awards id="awards" resources={props.childProps.resources} />
-            <Recognition resources={props.childProps.resources} />
+            <ThumbnailSectionBasic 
+              resources={props.childProps.resources} 
+              filter='Updates from the Industry'
+              inView={6} 
+              increment={3} 
+              title="Updates from the Industry"
+              id="industry_section"
+            />
+            <section className="press_wrapper" id="news">
+            <div className="contain"><h2 class="two">In the News & Press</h2></div>
+            <ThumbnailSectionBasic 
+              resources={props.childProps.resources} 
+              filter='In The Press'
+              inView={6} 
+              increment={3} 
+              title="Sanctuary & Advisors in the press"
+              id="press_section"
+            />
+            </section>
           </div>
         )}
       </div>

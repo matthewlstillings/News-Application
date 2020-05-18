@@ -1,0 +1,70 @@
+.thumbnail_section {
+  .grid {
+    display: flex;
+    flex-flow: wrap;
+  }
+  .thumbnail:nth-child(3n + 3) {
+    margin-right: 0;
+  }
+  .thumbnail {
+    width: 32%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    min-height: 450px;
+    transition: box-shadow 0.3s ease;
+    .callout {
+      position: absolute;
+      left: 1rem;
+      bottom: 2rem;
+      z-index: 2;
+    }
+    a {
+      height: 100%;
+      z-index: 10;
+    }
+    .date {
+      margin-bottom: .3rem;
+    }
+  }
+  .thumbnail:hover {
+    .callout {
+      color: $light_blue;
+    }
+  }
+  .image {
+    height: 250px;
+    background-position: center;
+    background-size: cover;
+  }
+  .info {
+    text-align: left;
+    background: transparent;
+  }
+}
+
+#industry_section, #press_section {
+    .callout {display: none;}
+    .info {
+        padding: 2rem 3rem 2rem 1.5rem;
+        height: 100%;
+    }
+    .thumbnail a {
+        display: flex;
+        flex-direction: column;
+    }
+    .image {
+        min-height: 250px;
+    }
+    .thumbnail:hover {
+        .article-title {
+            color: $light_blue;
+        }
+    }
+}
+
+.press_wrapper {
+    background: $offwhite;
+    .view_more_btn {
+        background: $offwhite;
+    }
+}

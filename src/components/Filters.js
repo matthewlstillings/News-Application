@@ -81,35 +81,44 @@ const Filters = (props) => {
   };
 
   return (
-    <div className="contain filters" id="insights">
-      <h2>Insights</h2>
-      <div className="filter_dropdown">
-        <p className="filter_label">Filter by: </p>
-        <button
-          className={`${
-            dropDown.filterType === "topics" && "selected"
-          } filter_dropnav`}
-          onClick={() => {
-            openDropDown("topics", props.topics);
-          }}
-        >
-          Topic
-        </button>
-        <button
-          className={`${
-            dropDown.filterType === "format" && "selected"
-          } filter_dropnav`}
-          onClick={() => {
-            openDropDown("format", props.format);
-          }}
-        >
-          Format
-        </button>
+    <div className="filters" id="insights">
+      <div className="contain filters">
+        <h2>Insights</h2>
+        <div className="filter_dropdown">
+          <button
+            className={`${
+              dropDown.filterType === "topics" && "selected"
+            } filter_dropnav`}
+            onClick={() => {
+              openDropDown("topics", props.topics);
+            }}
+          >
+            Topic
+          </button>
+          <button
+            className={`${
+              dropDown.filterType === "format" && "selected"
+            } filter_dropnav`}
+            onClick={() => {
+              openDropDown("format", props.format);
+            }}
+          >
+            Format
+          </button>
+          {dropDown.open && (
+            <button
+              className="clear-btn view_more_btn "
+              onClick={handleClearFilter}
+            >
+              Clear All
+            </button>
+          )}
+        </div>
       </div>
       <div
         className={`${
           dropDown.filterType === "topics" && "opened"
-        } dropdown_filter_list topics`}
+        } dropdown_filter_list topics contain`}
       >
         {props.topics.map((topic) => {
           return (
@@ -131,7 +140,7 @@ const Filters = (props) => {
       <div
         className={`${
           dropDown.filterType === "format" && "opened"
-        } dropdown_filter_list topics`}
+        } dropdown_filter_list topics contain`}
       >
         {props.format.map((topic) => {
           return (
@@ -150,8 +159,7 @@ const Filters = (props) => {
       </div>
       {tags.length > 0 && (
         <div>
-          {" "}
-          <div className="tag_contain">
+          <div className="tag_contain contain">
             {tags.map((tag) => (
               <div
                 className="tag"
@@ -165,14 +173,7 @@ const Filters = (props) => {
           </div>
         </div>
       )}
-      {dropDown.open && (
-        <button
-          className="clear-btn view_more_btn "
-          onClick={handleClearFilter}
-        >
-          Clear All
-        </button>
-      )}
+      
     </div>
   );
 };
