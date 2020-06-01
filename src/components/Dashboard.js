@@ -124,6 +124,14 @@ function Dashboard(props) {
             <Trending id="insights" resources={props.childProps.resources} />
             <ThumbnailSectionBasic 
               resources={props.childProps.resources} 
+              filter='In The Press'
+              inView={6} 
+              increment={3} 
+              title="In the press"
+              id="press_section"
+            />
+            <ThumbnailSectionBasic 
+              resources={props.childProps.resources} 
               filter='Webinar'
               inView={3} 
               increment={3} 
@@ -131,6 +139,8 @@ function Dashboard(props) {
               id="webinars_section"
             />
             <Featured resources={props.childProps.resources} />
+            
+            <section className="press_wrapper" id="news">
             <ThumbnailSectionBasic 
               resources={props.childProps.resources} 
               filter='Updates from the Industry'
@@ -138,16 +148,6 @@ function Dashboard(props) {
               increment={3} 
               title="Updates from the Industry"
               id="industry_section"
-            />
-            <section className="press_wrapper" id="news">
-            <div className="contain"><h2 class="two">In the News & Press</h2></div>
-            <ThumbnailSectionBasic 
-              resources={props.childProps.resources} 
-              filter='In The Press'
-              inView={6} 
-              increment={3} 
-              title="Sanctuary & Advisors in the press"
-              id="press_section"
             />
             </section>
           </div>

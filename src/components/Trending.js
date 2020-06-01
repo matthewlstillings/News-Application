@@ -30,7 +30,7 @@ const TrendingSection = (props) => {
 
 
   return (
-    <section className="thumbnail_section trending_section">
+    <section className="thumbnail_section trending_section" id="whats-new">
       <div className="contain">
                 <h3 class="section-title">What's New</h3>
       </div>

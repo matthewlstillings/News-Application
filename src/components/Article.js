@@ -25,13 +25,11 @@ const Article = (props) => {
   }
   return (
     <>
-      <div className="hero">
-        <div className="contain"></div>
-      </div>
+    
       <div className="article_container contain">
         <Link className="return_link" to={"/"}>
           <div class="arrow"></div>
-          <p>Resource Center</p>
+          <p>Return</p>
         </Link>
         {articleData ? (
           <article className="article_body">

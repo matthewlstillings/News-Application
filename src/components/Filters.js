@@ -83,7 +83,6 @@ const Filters = (props) => {
   return (
     <div className="filters" id="insights">
       <div className="contain filters">
-        <h2>Insights</h2>
         <div className="filter_dropdown">
           <button
             className={`${

@@ -18,7 +18,7 @@ const FeaturedSection = (props) => {
     });
   };
   return (
-    <section className="thumbnail_section features_section">
+    <section className="thumbnail_section features_section" id="featured">
       <div className="contain">
         <h3 className="section-title">Featured From Sanctuary</h3>
           <div className="grid features_grid">
