@@ -1,56 +1,68 @@
 .results_section {
-    .result_thumbnail:nth-last-child(1) {
-      border-bottom: none;
+  .grid {
+    display: block;
+  }
+
+  .result_thumbnail:nth-last-child(1) {
+    border-bottom: none;
+  }
+
+  .result_thumbnail:hover {
+    .callout {
+      color: $light_blue;
     }
-    .result_thumbnail:hover {
-      .callout {
+  }
+
+  .result_thumbnail {
+    border-bottom: 1px solid rgb(189, 189, 203);
+    margin-bottom: 2.1rem;
+    padding-bottom: 2.1rem;
+    min-height: 257px;
+    transition: box-shadow 0.3s ease;
+
+    a {
+      display: flex;
+    }
+
+    .image {
+      width: 25%;
+      max-width: 350px;
+      min-width: 350px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .title,
+    .summary {
+      max-width: 600px;
+    }
+
+    .summary {
+      font-weight: 100;
+      margin-bottom: 1.2rem;
+      font-size: 20px;
+      color: #7b889d;
+    }
+
+    .info {
+      padding: 1rem 3.5rem;
+      min-height: 197px;
+    }
+
+    .title {
+      font-weight: 600;
+      font-size: 20px;
+    }
+
+    .tags {
+      p {
+        display: inline-block;
+        margin-right: 5px;
+        text-transform: uppercase;
         color: $light_blue;
-      }
-    }
-    .result_thumbnail {
-      border-bottom: 1px solid rgb(189, 189, 203);
-      margin-bottom: 2.1rem;
-      padding-bottom: 2.1rem;
-      min-height: 257px;
-      transition: box-shadow 0.3s ease;
-      a {
-        display: flex;
-      }
-      .image {
-        width: 25%;
-        max-width: 350px;
-        min-width: 350px;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-      }
-      .title,
-      .summary {
-        max-width: 600px;
-      }
-      .summary {
-        font-weight: 100;
-        margin-bottom: 1.2rem;
-        font-size: 20px;
-        color: #7b889d;
-      }
-      .info {
-        padding: 1rem 3.5rem;
-        min-height: 197px;
-      }
-      .title {
         font-weight: 600;
-        font-size: 20px;
-      }
-      .tags {
-        p {
-          display: inline-block;
-          margin-right: 5px;
-          text-transform: uppercase;
-          color: $light_blue;
-          font-weight: 600;
-        }
       }
     }
   }
-  
+}

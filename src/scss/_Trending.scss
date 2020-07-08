@@ -1,72 +1,93 @@
 .trending_section {
-    .contain {
-      display: flex;
-      justify-content: space-between;
+  .contain {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .featured_contain {
+    width: 59%;
+  }
+
+  .grid {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 39%;
+  }
+
+  .trendItem.featured:hover,
+  .trendItem:hover {
+    .article-title {
+      color: $light_blue;
+      text-decoration: underline;
     }
-    .featured_contain {
-      width: 59%;
-    }
-    .grid {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      width: 39%;
-    }
-    .trendItem.featured:hover, .trendItem:hover {
-      .article-title {
-        color: $light_blue;
-        text-decoration: underline;
-      }
-      .trending-title {
-        color: $light_blue;
-      }
-    }
-    .trendItem.featured {
-      width: 100%;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      margin-left: 0;
-      justify-content: flex-end;
-      height: 100%;
-      padding: 0;
-      border-top: none;
-      a {
-        display: block;
-        width: 100%;
-        height: 100%;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-end;
-        padding: 1rem 1rem 40px;
-        display: flex;
-      }
-      p {
-        color: white;
-        max-width: 600px;
-      }
-    }
-    .trendItem:nth-child(3) {
-      border-bottom: 1px solid $grey;
-    }
-    .trendItem.noLink {
-      order: 3;
-      a {
-        cursor: default;
-      }
-    }
-    .trendItem {
-      width: 100%;
-      border-top: 1px solid $grey;
-      padding: 1.5rem 1rem 1.5rem 0;
-      padding-right: 3rem;
-      .trending-title {
-          margin-bottom: 1.5rem;
-      }
-    }
-    .trendItem:hover {
-      .callout {
-        color: $light_blue;
-      }
+
+    .trending-title {
+      color: $light_blue;
     }
   }
+
+  .trendItem.featured {
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 0;
+    justify-content: flex-end;
+    height: 100%;
+    padding: 0;
+    border-top: none;
+
+    .cover {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, .2);
+    }
+
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: 1rem 1rem 40px;
+      display: flex;
+    }
+
+    p {
+      color: white;
+      max-width: 600px;
+    }
+  }
+
+  .trendItem:nth-child(3) {
+    border-bottom: 1px solid $grey;
+  }
+
+  .trendItem.noLink {
+    order: 3;
+
+    a {
+      cursor: default;
+    }
+  }
+
+  .trendItem {
+    width: 100%;
+    border-top: 1px solid $grey;
+    padding: 1.5rem 1rem 1.5rem 0;
+    padding-right: 3rem;
+
+    .trending-title {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .trendItem:hover {
+    .callout {
+      color: $light_blue;
+    }
+  }
+}
