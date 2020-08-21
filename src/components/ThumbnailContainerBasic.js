@@ -7,7 +7,7 @@ const ThumbnailSectionBasic = (props) => {
 	const [inView, setInView] = useState();
 	useEffect(() => {
 		setContent(singleFilter(props.filter, props.resources).slice(0, inView));
-	}, [props.resources, inView]);
+	}, [props.resources, inView, props.filter]);
 	useEffect(() => {
 		setInView(props.inView);
 	}, []);
@@ -29,9 +29,13 @@ const ThumbnailSectionBasic = (props) => {
 										<Link to={`/article/${thumbnail.ENITY_ID}`}>
 											<div
 												className="image"
-												style={{
-													backgroundImage: `url(${thumbnail.HREF2})`,
-												}}
+												style={
+													thumbnail.HREF2
+														? {
+																backgroundImage: `url(${thumbnail.HREF2})`,
+														  }
+														: { display: "none" }
+												}
 											></div>
 											<div className="info">
 												<p className="date">
@@ -44,12 +48,20 @@ const ThumbnailSectionBasic = (props) => {
 											</div>
 										</Link>
 									) : (
-										<a target="_blank" href={thumbnail.HREF}>
+										<a
+											target="_blank"
+											href={thumbnail.HREF}
+											rel="noopener noreferrer"
+										>
 											<div
 												className="image"
-												style={{
-													backgroundImage: `url(${thumbnail.HREF2})`,
-												}}
+												style={
+													thumbnail.HREF2
+														? {
+																backgroundImage: `url(${thumbnail.HREF2})`,
+														  }
+														: { display: "none" }
+												}
 											></div>
 											<div className="info">
 												<p className="date">

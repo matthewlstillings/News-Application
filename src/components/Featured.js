@@ -32,7 +32,11 @@ const FeaturedSection = (props) => {
 							key={feature.ENITY_ID}
 						>
 							<ce oet={`sbd3167_${feature.ENITY_ID}`}>
-								<a href={`${feature.HREF}`} target="_blank">
+								<a
+									href={`${feature.HREF}`}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
 									<div
 										className="image"
 										style={{

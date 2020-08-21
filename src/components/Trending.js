@@ -36,7 +36,7 @@ const TrendingSection = (props) => {
 						>
 							<div class="cover"></div>
 							<ce oet={`sbd3167_${bigOne.ENITY_ID}`}>
-								<a href={bigOne.HREF} target="_blank">
+								<a href={bigOne.HREF} target="_blank" rel="noopener noreferrer">
 									<div>
 										<p className="article-title">{bigOne.DISPLAY_NAME}</p>
 										<p className="date">
@@ -53,7 +53,7 @@ const TrendingSection = (props) => {
 						{littleOne && (
 							<div className="trendItem">
 								<ce oet={`sbd3167_${littleOne.ENITY_ID}`}>
-									<a href={littleOne.HREF} target="_blank">
+									<a href={littleOne.HREF} target="_blank" rel="noopener noreferrer">
 										<div>
 											<p className="trending-title">{littleOne.DISPLAY_NAME}</p>
 											<p className="date">
@@ -67,7 +67,7 @@ const TrendingSection = (props) => {
 						{littleTwo && (
 							<div className="trendItem">
 								<ce oet={`sbd3167_${littleTwo.ENITY_ID}`}>
-									<a href={littleTwo.HREF} target="_blank">
+									<a href={littleTwo.HREF} target="_blank" rel="noopener noreferrer">
 										<div>
 											<p className="trending-title">
 												{littleTwo.DISPLAY_NAME}
@@ -83,7 +83,7 @@ const TrendingSection = (props) => {
 						{littleThree && (
 							<div className="trendItem">
 								<ce oet={`sbd3167_${littleThree.ENITY_ID}`}>
-									<a href={littleThree.HREF} target="_blank">
+									<a href={littleThree.HREF} target="_blank" rel="noopener noreferrer">
 										<div>
 											<p className="trending-title">{littleThree.DISPLAY_NAME}</p>
 											<p className="date">

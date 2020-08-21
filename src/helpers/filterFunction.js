@@ -1,23 +1,43 @@
 export const searchFilter = (filterParams, resources) => {
 	let filteredArr = resources.filter((item) => {
 		const formatMatch =
-			!filterParams.format ||
-			item.EXTRA3.toLowerCase() === filterParams.format.toLowerCase();
+			!filterParams.filterThree ||
+			(item.EXTRA3 &&
+				item.EXTRA3.toLowerCase() === filterParams.filterThree.toLowerCase());
 		const distMatch =
-			!filterParams.dist ||
-			item.EXTRA2.toLowerCase() === filterParams.dist.toLowerCase();
+			!filterParams.filterTwo ||
+			(item.EXTRA2 &&
+				item.EXTRA2.toLowerCase() === filterParams.filterTwo.toLowerCase());
 		const industryMatch =
-			!filterParams.industry ||
-			item.EXTRA1.toLowerCase() === filterParams.industry.toLowerCase();
-
+			!filterParams.filterOne ||
+			(item.EXTRA1 &&
+				item.EXTRA1.toLowerCase() === filterParams.filterOne.toLowerCase());
+		const yearMatch =
+			!filterParams.years ||
+			item.POST_DATE_FORMAT.slice(-4) === filterParams.years;
 		const topicsMatch =
 			!filterParams.topics ||
 			!item.MAPPING_IDS ||
 			filterParams.topics.every((filter) =>
 				item.MAPPING_IDS.some((tag) => tag.NAME === filter),
 			);
+		const textMatch =
+			!filterParams.text ||
+			item.DISPLAY_NAME.toLowerCase().includes(
+				filterParams.text.toLowerCase(),
+			) ||
+			item.SHORT_DESC.toLowerCase().includes(filterParams.text.toLowerCase());
 		const checkID = item.MAPPING_IDS ? true : false;
-		return formatMatch & distMatch & industryMatch & topicsMatch & checkID;
+
+		return (
+			formatMatch &
+			distMatch &
+			industryMatch &
+			topicsMatch &
+			checkID &
+			yearMatch &
+			textMatch
+		);
 	});
 
 	return filteredArr.sort((a, b) => {
@@ -54,6 +74,7 @@ export const singleFilter = (filter, resources) => {
 	});
 };
 
+/*************NO LONGER IN USE but may be used later **********************
 export const filterTrending = (filterParams, resources) => {
 	let filteredArr = resources.filter((item) => {
 		const formatMatch =
@@ -77,3 +98,5 @@ export const filterTrending = (filterParams, resources) => {
 			: -1;
 	});
 };
+
+************************/

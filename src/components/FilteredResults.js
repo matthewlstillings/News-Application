@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { searchFilter } from "../helpers/filterFunction";
-import Fade from "react-reveal/Fade";
 
 const FilteredResults = (props) => {
 	const [results, setResults] = useState([]);
@@ -31,6 +30,7 @@ const FilteredResults = (props) => {
 												? "/article/" + thumbnail.ENITY_ID
 												: thumbnail.HREF
 										}`}
+										rel="noopener noreferrer"
 									>
 										<div
 											class="image"

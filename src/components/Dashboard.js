@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Filters from "./Filters";
 import Trending from "./Trending";
 import Featured from "./Featured";
@@ -6,37 +6,37 @@ import FilteredResults from "./FilteredResults";
 import ThumbnailSectionBasic from "./ThumbnailContainerBasic";
 
 function Dashboard(props) {
+	//If filter is applied, open filtered results
 	const [openSearch, setOpenSearch] = useState(false);
+	// State for filters, if any of the filters are applied the search results will open
 	const [filters, setFilters] = useState({
-		topics: [],
-		industry: "",
-		dist: "",
-		format: "",
+		topics: [], //Array to add mapping_ids to.
+		filterOne: "", //Currently uses EXTRA1 field, only one filter at a time is allowed here.
+		filterTwo: "", //Currently uses EXTRA2 field, only one filter at a time is allowed here.
+		filterThree: "", //Currently uses EXTRA3 field, only one filter at a time is allowed here.
+		years: "",
+		text: "",
 	});
 
-	useEffect(() => {
-		showToolKit();
-	}, []);
-
-	const showToolKit = () => {
-		const toolkit = document.querySelector("#toolkit");
-		if (toolkit) {
-			toolkit.style.display = "block";
-		}
-	};
-
+	//Function to open search results
 	const handleSetOpenResults = () => {
 		setOpenSearch(true);
 	};
+
+	//Clears Filters
 	const clearFilters = () => {
 		setFilters({
 			topics: [],
-			industry: "",
-			dist: "",
-			format: "",
+			filterOne: "",
+			filterTwo: "",
+			filterThree: "",
+			years: "",
+			text: "",
 		});
 		setOpenSearch(false);
 	};
+
+	//Function for setting topics/mapping_ids filter
 	const handleSetTopics = (filterItem) => {
 		const newArr = filters.topics.slice();
 
@@ -51,46 +51,17 @@ function Dashboard(props) {
 		handleSetOpenResults();
 	};
 
-	const handleSetIndustry = (filterItems) => {
-		if (filters.industry === filterItems) {
+	//Function for setting EXTRA/Text/Year Filters
+	const handleSetFilter = (filterItem, filterProp) => {
+		if (filters[filterProp] === filterItem) {
 			setFilters({
 				...filters,
-				industry: "",
+				[filterProp]: "",
 			});
 		} else {
 			setFilters({
 				...filters,
-				industry: filterItems,
-			});
-		}
-		handleSetOpenResults();
-	};
-
-	const handleSetDist = (filterItems) => {
-		if (filters.dist === filterItems) {
-			setFilters({
-				...filters,
-				dist: "",
-			});
-		} else {
-			setFilters({
-				...filters,
-				dist: filterItems,
-			});
-		}
-		handleSetOpenResults();
-	};
-
-	const handleSetFormat = (filterItems) => {
-		if (filters.format === filterItems) {
-			setFilters({
-				...filters,
-				format: "",
-			});
-		} else {
-			setFilters({
-				...filters,
-				format: filterItems,
+				[filterProp]: filterItem,
 			});
 		}
 		handleSetOpenResults();
@@ -102,14 +73,15 @@ function Dashboard(props) {
 				<div className="filters_section">
 					<Filters
 						topics={props.childProps.topics}
-						dist={props.childProps.dist}
-						format={props.childProps.format}
-						industry={props.childProps.industry}
+						filterOne={props.childProps.filterOne}
+						filterTwo={props.childProps.filterTwo}
+						filterThree={props.childProps.filterThree}
+						years={props.childProps.years}
+						textFilter={props.childProps.textFilter}
 						handleSetTopics={handleSetTopics}
-						handleSetIndustry={handleSetIndustry}
-						handleSetDist={handleSetDist}
-						handleSetFormat={handleSetFormat}
+						handleSetFilter={handleSetFilter}
 						setOpenSearch={setOpenSearch}
+						openSearch={openSearch}
 						clearFilters={clearFilters}
 					/>
 				</div>
