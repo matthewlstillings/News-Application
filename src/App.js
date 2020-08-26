@@ -10,6 +10,7 @@ function App() {
 	//Topics is specfic to tagging MAPPINGS's if it's being used.
 	const [topics, setTopics] = useState([]);
 	//Will place all possible EXTRA1 values into array.
+	//inputType is either "" or "checkboxes"
 	const [filterOne, setFilterOne] = useState({
 		inputType: "",
 		filterName: "",
