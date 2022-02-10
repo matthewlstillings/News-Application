@@ -10,7 +10,7 @@
     "core-js": "^3.6.5",
     "create-react-class": "^15.6.3",
     "fs": "^0.0.1-security",
-    "node-sass": "^4.14.0",
+    "node-sass": "^7.0.0",
     "prettier": "^2.0.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
